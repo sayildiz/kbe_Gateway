@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+   gateway:
+     container_name: gateway
+     command: java -jar target/demo-0.0.1-SNAPSHOT.jar
+     build:
+       context: .
+       dockerfile: .docker/Dockerfile
+     ports:
+       - "56669:56669"
+     environment:
+       - appservice.host=http://appservice
+       - appservice.port=56668
+       - appservice.productAPI=product
+
+       - calculator.host=http://calculator
+       - calculator.port=56667
+       - calculator.VatAPI=vat
+
+
+networks:
+  default:
+    external:
+      name: myNetwork
