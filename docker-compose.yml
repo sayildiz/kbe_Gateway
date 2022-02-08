@@ -10,9 +10,9 @@ services:
      ports:
        - "56669:56669"
      environment:
-       - appservice.host=http://appservice
-       - appservice.port=56668
-       - appservice.productAPI=product
+       - appService.host=http://appservice
+       - appService.port=56668
+       - appService.productAPI=product
 
        - calculator.host=http://calculator
        - calculator.port=56667
