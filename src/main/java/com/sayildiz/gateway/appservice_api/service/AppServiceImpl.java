@@ -1,16 +1,12 @@
 package com.sayildiz.gateway.appservice_api.service;
 
-import com.sayildiz.gateway.appservice_api.model.Product;
+import com.sayildiz.gateway.appservice_api.model.ProductDTO;
 import com.sayildiz.gateway.appservice_api.model.ProductDetails;
 import com.sayildiz.gateway.helper.UrlHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -40,9 +36,9 @@ public class AppServiceImpl implements AppService {
     private final Logger logger = LoggerFactory.getLogger(AppServiceImpl.class);
 
     @Override
-    public List<Product> getProductList() {
+    public List<ProductDTO> getProductList() {
         String url = urlHelper.createUrl(appServiceHost, appServicePort, appServiceAPI);
-        Product[] response = restTemplate.getForObject(url, Product[].class);
+        ProductDTO[] response = restTemplate.getForObject(url, ProductDTO[].class);
         logger.warn(Arrays.toString(response));
         return Arrays.asList(Objects.requireNonNull(response));
     }

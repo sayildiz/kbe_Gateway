@@ -1,6 +1,6 @@
 package com.sayildiz.gateway.controller;
 
-import com.sayildiz.gateway.appservice_api.model.Product;
+import com.sayildiz.gateway.appservice_api.model.ProductDTO;
 import com.sayildiz.gateway.appservice_api.model.ProductDetails;
 import com.sayildiz.gateway.appservice_api.service.AppService;
 import com.sayildiz.gateway.calculator_api.model.Price;
@@ -26,7 +26,7 @@ public class GatewayController {
     }
 
     @GetMapping("/product")
-    public List<Product> getProductList(){
+    public List<ProductDTO> getProductList(){
         return appService.getProductList();
     }
 
