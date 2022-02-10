@@ -39,13 +39,14 @@ public class AppServiceImpl implements AppService {
     public List<ProductDTO> getProductList() {
         String url = urlHelper.createUrl(appServiceHost, appServicePort, appServiceAPI);
         ProductDTO[] response = restTemplate.getForObject(url, ProductDTO[].class);
-        logger.warn(Arrays.toString(response));
+        logger.info("Requestes Product List");
         return Arrays.asList(Objects.requireNonNull(response));
     }
 
     @Override
     public ProductDetails getProductDetails(UUID uuid) {
         String url = urlHelper.createUrl(appServiceHost, appServicePort, appServiceAPI, uuid.toString());
+        logger.info("Requestes Product: " + uuid);
         return restTemplate.getForObject(url, ProductDetails.class);
     }
 }

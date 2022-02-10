@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+//set to angular port
+@CrossOrigin(origins = "http://localhost:4200")
 public class GatewayController {
     private static final Logger logger = LoggerFactory.getLogger(GatewayController.class);
 
