@@ -10,10 +10,12 @@ services:
      ports:
        - "56669:56669"
      environment:
+       - server.tomcat.max-threads=200
+       - server.tomcat.accept-count=100
+       - server.tomcat.max-connections=1000
        - appService.host=http://appservice
        - appService.port=56668
        - appService.productAPI=product
-
        - calculator.host=http://calculator
        - calculator.port=56667
        - calculator.VatAPI=vat
